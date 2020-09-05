@@ -77,8 +77,17 @@ var cityWeather = function(value) {
 
 // api key a9kdLi-v4txmsrRgTFeTgvVop5k6ldC0K1quPvEG7qqeKZSbsuXE0Ta6CdmOkY1gsbfOg6tGNlj8_0fkj2BKjteccbnYUXkrP59niNbGJUv5YpU7TyngFlTEgwRPX3Yx
 // dashboard - Yelp Food - search by city
-var cityFood = function (value) {
-
+var cityFood = function () {
+    fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDo3v5Z07pQqkeaVQXLwBHJavbu-ZJ0YEg")
+    .then(response => {
+        response.json().then(data=>{
+            console.log(data);
+        })
+        cityWeather()
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 }
 
